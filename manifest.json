@@ -1,0 +1,18 @@
+{
+    "name": "LinkedIn YOE",
+    "version": "0.1.0",
+    "description": "Get least YOE for job.",
+    "manifest_version": 3,
+    "author" : "Julian Lin",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Least YOE for job."
+    },
+    "content_scripts" : [
+        {
+            "matches": ["https://www.linkedin.com/jobs/*"],
+            "js": ["script.js"],
+            "css": ["styles.css"]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+.jobs-save-button {
+    background-color: red !important;
+}
+
+.yoe_tag {
+    padding: 4px 8px;
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 12px;
+	box-shadow: 0 2px 5px rgba(0,0,0,.25);
+	margin: 10px 0;
+}
+
+
+.new-grad {
+    background: #4cc54a;
+	color: whitesmoke;
+}
+
+.junior {
+    background: #5FD6D4;
+	color: whitesmoke;
+}
+
+.mid-level {
+    background:#FEB904;
+	color: whitesmoke;
+}
+
+.senior {
+    background: #DA605B;
+	color: whitesmoke;
+}

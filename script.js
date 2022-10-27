@@ -9,17 +9,24 @@ function parseJobDescription() {
     const jobDesctiptionText = jobDesctiptionElement.innerText;
     matches = jobDesctiptionText.match(/(\d+\+?| \d+\-\d+\+?)[ ]*year/gi);
     if (matches == null || matches.length === 0) {
+        removeTag();
         return;
     }
     const filteredMatches = [];
     for (const match of matches) {
         const matchInt = parseInt(match);
-        if (Number.isInteger(matchInt) && matchInt < 30) {
+        if (Number.isInteger(matchInt) && matchInt < 20) {
             filteredMatches.push(matchInt)
         }
     }
+    if (filteredMatches.length === 0) {
+        removeTag();
+        return;
+    }
+
     const minYOE = Math.min(...filteredMatches);
     const maxYOE = Math.max(...filteredMatches);
+    console.log(filteredMatches,minYOE, maxYOE )
     const yoeText = minYOE === maxYOE ? `${String(minYOE)}+ YOE` : `${minYOE}-${maxYOE}+ YOE`;
     console.log(yoeText);
     let yoeTag = document.getElementById('yoe_tag');
@@ -35,6 +42,13 @@ function parseJobDescription() {
         modifyTag(yoeTag, yoeText, maxYOE)
     }
 
+}
+
+function removeTag(){
+    let yoeTag = document.getElementById('yoe_tag');
+    if (yoeTag != null) {
+        yoeTag.remove();
+    }
 }
 
 function modifyTag(yoeTag, yoeText, maxYOE) {

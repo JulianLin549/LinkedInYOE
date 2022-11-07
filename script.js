@@ -78,6 +78,21 @@ function addTagClass(yoeTag, maxYOE) {
     }
 }
 
-document.addEventListener("DOMSubtreeModified", function(event){
+const target = document.querySelector('.jobs-description-content__text');
+
+// Create an observer instance
+
+const mutationObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      console.log(mutation.type);
+    });
     parseJobDescription()
-  });
+});
+  
+// Starts listening for changes in the root HTML element of the page.
+mutationObserver.observe(document.documentElement, {
+    attributes: true, 
+    childList: true, 
+    subtree: true
+});
+
